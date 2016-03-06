@@ -1,10 +1,16 @@
 <html>
 <head>
 	<title>Rails API Token Auth Tiddle + Devise + AngularJS</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="myApp">
 	
-	<div ng-controller="myCtrl">
+	<div ng-controller="myCtrl" ng-init="user_credentials()">
+		<div ng-show="user_credentials()" class="ng-cloak">
+			<button type="button" ng-click="logout()">Log out</button>&nbsp;
+			<button type="button" ng-click="getPosts()">Get Posts</button><br><br>
+		</div>
+
 		<form ng-submit="login()">
 			<label>Email</label><br>
 			<input type="text" ng-model="user.email"><br>
