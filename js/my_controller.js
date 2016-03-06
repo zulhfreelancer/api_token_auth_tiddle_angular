@@ -41,7 +41,7 @@ app.controller('myCtrl', ['$scope', 'localStorageService', 'AuthFactory', 'PostF
     Get posts
     ============= */
     $scope.getPosts = function(){
-    	PostFactory.getPosts();
+    	PostFactory.getPosts($scope);
     };
 
 }]);
