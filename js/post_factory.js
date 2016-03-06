@@ -17,20 +17,20 @@ app.factory('PostFactory', ['$http', 'API_ENDPOINT', function ($http, API_ENDPOI
 	}
 
 	obj.createPost = function($scope){
-			$http.post(API_ENDPOINT + 'posts.json', { post: $scope.post }).
-	    	then(
-				    function(response) {
-				    	console.log('Post created successfully');
-				        var response = response.data; // Object {status: "Success", message: "User signed-in successfully and token created", authentication_token: "9vCkNM-Qk8QkuxEDyXh6"}
-			        	console.log(response);
-			        	$scope.post = "";
-			        	// add it to the posts list
-			        	obj.getPosts($scope);
-				    }, function(error) {
-				    	console.log('Failed to create post');
-				    }
-			    )
-		}
+		$http.post(API_ENDPOINT + 'posts.json', { post: $scope.post }).
+    	then(
+			    function(response) {
+			    	console.log('Post created successfully');
+			        var response = response.data; // Object {status: "Success", message: "User signed-in successfully and token created", authentication_token: "9vCkNM-Qk8QkuxEDyXh6"}
+		        	console.log(response);
+		        	$scope.post = "";
+		        	// add it to the posts list
+		        	obj.getPosts($scope);
+			    }, function(error) {
+			    	console.log('Failed to create post');
+			    }
+		    )
+	}
 
 	return obj;
 

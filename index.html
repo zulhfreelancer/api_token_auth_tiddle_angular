@@ -19,16 +19,17 @@
 			<ul>
 				<li ng-repeat="post in posts">{{post.body}}</li>
 			</ul>
-			<hr>
 		</div>
 
-		<form ng-submit="login()">
-			<label>Email</label><br>
-			<input type="text" ng-model="user.email"><br>
-			<label>Password</label><br>
-			<input type="text" ng-model="user.password"><br><br>
-			<input type="submit" value="Login"><br>
-		</form>
+		<div ng-hide="user_credentials()">
+			<form ng-submit="login()">
+				<label>Email</label><br>
+				<input type="text" ng-model="user.email"><br>
+				<label>Password</label><br>
+				<input type="text" ng-model="user.password"><br><br>
+				<input type="submit" value="Login"><br>
+			</form>
+		</div>
 	</div>
 
 	<script src="js/angular.min.js"></script>
