@@ -5,7 +5,13 @@
 <body ng-app="myApp">
 	
 	<div ng-controller="myCtrl">
-		{{name}}
+		<form ng-submit="login()">
+			<label>Email</label><br>
+			<input type="text" ng-model="user.email"><br>
+			<label>Password</label><br>
+			<input type="text" ng-model="user.password"><br><br>
+			<input type="submit" value="Login"><br>
+		</form>
 	</div>
 
 	<script src="js/angular.min.js"></script>
