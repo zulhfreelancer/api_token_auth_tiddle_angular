@@ -44,4 +44,12 @@ app.controller('myCtrl', ['$scope', 'localStorageService', 'AuthFactory', 'PostF
     	PostFactory.getPosts($scope);
     };
 
+    /*
+    Create a post
+    */
+    $scope.post  = {};
+    $scope.createPost = function(){
+    	PostFactory.createPost($scope);
+    }
+
 }]);
