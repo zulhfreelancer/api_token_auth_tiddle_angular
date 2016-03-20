@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['LocalStorageModule']);
+var app = angular.module('myApp', ['LocalStorageModule', 'ngFileUpload']);
 
 app.constant('API_ENDPOINT', "http://localhost:3000/");
 

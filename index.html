@@ -12,12 +12,19 @@
 
 			<form ng-submit="createPost()">
 				<label>Body</label><br>
-				<textarea ng-model="post.body"></textarea><br><br>
+				<textarea ng-model="post.body"></textarea><br>
+				<label>Photo</label><br>
+				<input ng-model="post.photo" type="file" ngf-select><br><br>
 				<input type="submit" value="Create post"><br>
 			</form>
 
 			<ul>
-				<li ng-repeat="post in posts">{{post.body}}</li>
+				<li ng-repeat="post in posts">
+					<img ng-src="{{api_server + post.photo.url}}">
+					<p>{{post.body}}</p>
+					<button type="button" ng-click="delete(post.id)">Delete</button>
+					<hr ng-show="{{ $index < (posts.length - 1) }}">
+				</li>
 			</ul>
 		</div>
 
@@ -33,6 +40,8 @@
 	</div>
 
 	<script src="js/angular.min.js"></script>
+	<script src="js/ng-file-upload-shim.min.js"></script>
+	<script src="js/ng-file-upload.min.js"></script>
 	<script src="js/angular-local-storage.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/my_controller.js"></script>

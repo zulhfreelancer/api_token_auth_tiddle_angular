@@ -1,4 +1,4 @@
-app.controller('myCtrl', ['$scope', 'localStorageService', 'AuthFactory', 'PostFactory', function ($scope, localStorageService, AuthFactory, PostFactory) {
+app.controller('myCtrl', ['$scope', 'localStorageService', 'AuthFactory', 'PostFactory', 'API_ENDPOINT', function ($scope, localStorageService, AuthFactory, PostFactory, API_ENDPOINT) {
 	/*
 	For localStorage, we're using this library:
 	https://github.com/grevory/angular-local-storage
@@ -51,5 +51,19 @@ app.controller('myCtrl', ['$scope', 'localStorageService', 'AuthFactory', 'PostF
     $scope.createPost = function(){
     	PostFactory.createPost($scope);
     }
+
+    /* Delete a post */
+    $scope.delete = function(post_id){
+    	PostFactory.deletePost($scope, post_id);
+    }
+
+    /*
+    to display uploaded images from server, we need the server URL
+    like this: "http://localhost:3000/"
+
+    since we already have it as app constant, we can pass it to $scope
+    and access it from view using `{{api_server}}`
+    */
+    $scope.api_server = API_ENDPOINT;
 
 }]);
